@@ -76,7 +76,6 @@ public class Gui extends Application{
 	private Label gameOverLabel;
 	private Label hpLabel;
 	private Label textLabel;
-	//private Label textLabel2;
 	private Label timeLabel;
 	private Label conditionLabel;
 	private Label[] itemLabel;
@@ -90,9 +89,6 @@ public class Gui extends Application{
 	private boolean moveTimerJudge = false;
 	Timeline damageTimer;
 	Timeline moveStopTimer;
-	//private int damage;
-	//private double recovery = 0;
-	//int num ;
 	
 	
 	EventHandler<MouseEvent> itemMouseClick = ( event ) -> this.itemEventMouseClick( event );
@@ -218,7 +214,6 @@ public class Gui extends Application{
 		startBtn.setPrefHeight(50);//縦のサイズ
 		startBtn.setText("S T A R T");
 		startBtn.setFont(new Font(20));//文字サイズ
-		//startBtn.setPadding(new Insets(500,0,450,0));
 		
 		EventHandler<MouseEvent> gameStart = (event) -> gameScreen1(event,stage);//マウスクリックで画面切り替え
 		startBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, gameStart);
@@ -266,27 +261,20 @@ public class Gui extends Application{
 		switch(firstImgNum) {
 			case 0:
 				pokemon = new Churine(this,timer);
-				//churine.attackTimer();
 				break;
 			case 1:
 				pokemon = new Pikachu(this,timer);
-				//pikachu.attackTimer();
 				break;
 			case 2:
 				pokemon = new Hikozaru(this,timer);
-				//hikozaru.attackTimer();
 				break;
 			case 3:
 				pokemon = new Betobeta(this,timer);
-				//betobeta.attackTimer();
 				break;
 			case 4:
 				pokemon = new Dorameshiya(this,timer);
-				//dorameshiya.attackTimer();
 				break;
 		}
-		
-		//pokemon.attackTimer();
 		
 		
 		firstImgView = new ImageView[5];
@@ -298,12 +286,8 @@ public class Gui extends Application{
 	    
 		
 		enemyHb = new HBox(50);
-		//enemyHb.setPrefSize(50,50);
 		enemyHb.setPadding(new Insets(0,0,0,50));
 		enemyHb.getChildren().addAll(hpVb,firstImgView[firstImgNum]);
-		
-		//enemyHb.setAlignment(Pos.CENTER);
-		
 
 		timeLabel = new Label();
 		timeLabel.setText("TIME：");
@@ -331,7 +315,6 @@ public class Gui extends Application{
 		timeVb = new VBox();
 		timeVb.setBackground(new Background(new BackgroundFill(new Color(1,1,1,0.6) , new CornerRadii(5) , Insets.EMPTY )));
 		timeVb.setBorder(border);
-		//timeVb.setPrefSize(370, 60);
 		timeVb.getChildren().addAll(conditionHb,timeHb);
 		
 		textLabel = new Label();
@@ -342,7 +325,7 @@ public class Gui extends Application{
 		textLabel.setPrefSize(400, 90);
 		textLabel.setAlignment(Pos.CENTER);
 		
-		//textLabel.setText(pokemon.getName() + "が現れた！");
+
 		pokemonNameText();
 		nullText();
 		
@@ -401,7 +384,6 @@ public class Gui extends Application{
 		timer =  new Timer(this,stage);
 		timer.setMoveJudge(true);
 		
-		//System.out.println("スクリーン２"+clearCount);
 		int bombNum = 15;
 		itemCount = 0;
 		
@@ -434,27 +416,21 @@ public class Gui extends Application{
 		switch(secondImgNum) {
 		case 0:
 			pokemon = new Tsunbear(this,timer);
-			//tsunbear.attackTimer();
 			break;
 		case 1:
 			pokemon = new Burakki(this,timer);
-			//burakki.attackTimer();
 			break;
 		case 2:
 			pokemon = new Gengar(this,timer);
-			//gengar.attackTimer();
 			break;
 		case 3:
 			pokemon = new Kyukon(this,timer);
-			//kyukon.attackTimer();
 			break;
 		case 4:
 			pokemon = new Taruppuru(this,timer);
-			//taruppuru.attackTimer();
 			break;
 	}
 
-		//pokemon.attackTimer();
 		
 		secondImgView = new ImageView[5];
 		secondImgView[0] = new ImageView(imgT);
@@ -467,7 +443,6 @@ public class Gui extends Application{
 		enemyHb = new HBox(70);
 		enemyHb.setPadding(new Insets(0,0,0,50));
 		enemyHb.getChildren().addAll(hpVb,secondImgView[secondImgNum]);
-		//enemyHb.setAlignment(Pos.CENTER);
 		
 		timeLabel = new Label();
 		timeLabel.setText("TIME：");
@@ -506,7 +481,6 @@ public class Gui extends Application{
 		textLabel.setPrefSize(400, 90);
 		textLabel.setAlignment(Pos.CENTER);
 		
-		//textLabel.setText(pokemon.getName() + "が現れた！");
 		pokemonNameText();
 		nullText();
 		
@@ -564,7 +538,6 @@ public class Gui extends Application{
 		
 		timer =  new Timer(this,stage);
 		timer.setMoveJudge(true);
-		//System.out.println("スクリーン3"+clearCount);
 		
 		int bombNum = 18;
 		itemCount = 0;
@@ -587,7 +560,6 @@ public class Gui extends Application{
 	    hpHb.setAlignment(Pos.CENTER);
 	    
 	    hpVb = new VBox();
-	    //hpVb.setPadding(new Insets(0,25,0,0));
 		hpVb.setAlignment(Pos.CENTER);
 		hpVb.getChildren().addAll(hpHb);
 	    
@@ -598,27 +570,21 @@ public class Gui extends Application{
 		switch(finalImgNum) {
 		case 0:
 			pokemon = new Mugendaina(this,timer);
-			//mugendaina.attackTimer();
 			break;
 		case 1:
 			pokemon = new Zekuromu(this,timer);
-			//zekuromu.attackTimer();
 			break;
 		case 2:
 			pokemon = new Girathina(this,timer);
-			//girathina.attackTimer();
 			break;
 		case 3:
 			pokemon = new Myutu(this,timer);
-			//myutu.attackTimer();
 			break;
 		case 4:
 			pokemon = new Rugia(this,timer);
-			//rugia.attackTimer();
 			break;
 	}
 		
-		//pokemon.attackTimer();
 		
 		finalImgView = new ImageView[5];
 		finalImgView[0] = new ImageView(imgM);
@@ -630,8 +596,6 @@ public class Gui extends Application{
 		enemyHb = new HBox(50);
 		enemyHb.setPadding(new Insets(0,0,0,50));
 		enemyHb.getChildren().addAll(hpVb,finalImgView[finalImgNum]);
-		//enemyHb.setAlignment(Pos.CENTER);
-		
 		
 		timeLabel = new Label();
 		timeLabel.setText("TIME：");
@@ -670,7 +634,6 @@ public class Gui extends Application{
 		textLabel.setPrefSize(400, 90);
 		textLabel.setAlignment(Pos.CENTER);
 		
-		//textLabel.setText(pokemon.getName() + "が現れた！");
 		pokemonNameText();
 		nullText();
 		
@@ -709,7 +672,6 @@ public class Gui extends Application{
 		
 		msHb = new HBox(50);
 		msHb.getChildren().addAll(cellGui,msVb);
-		//msHb.setPadding(new Insets(10));
 		msHb.setAlignment(Pos.CENTER);
 		
 		
@@ -725,33 +687,24 @@ public class Gui extends Application{
 	}
 	
 	public void setTimer() {
-		//timer = new Timer(this);
 		timer.start();
 	}
 	
 	public void moveStop(String conditionText) {
 		moveTimerJudge2 = true;
-		System.out.println("じゃっじ" + moveTimerJudge2);
 		
 		itemDisable = true;
 		cellGui.setDisable(true);
 		
-		//moveTimerJudge = true;
 		
 		if(conditionText.equals("まひ")) {
 			cellGui.setBackground(new Background(new BackgroundFill( Color.YELLOW , new CornerRadii(5) , Insets.EMPTY  )));
-			//conditionLabel.setText(conditionText);
-			//conditionLabel.setBackground(new Background(new BackgroundFill( Color.YELLOW , new CornerRadii(5) , Insets.EMPTY  )));
 		}
 		else if(conditionText.equals("ねむり")) {
 			cellGui.setBackground(new Background(new BackgroundFill( Color.LIGHTBLUE , new CornerRadii(5) , Insets.EMPTY  )));
-			//conditionLabel.setText(conditionText);
-			//conditionLabel.setBackground(new Background(new BackgroundFill( Color.LIGHTBLUE , new CornerRadii(5) , Insets.EMPTY  )));
 		}
 		else if(conditionText.equals("こおり")) {
 			cellGui.setBackground(new Background(new BackgroundFill( Color.LIGHTSKYBLUE , new CornerRadii(5) , Insets.EMPTY  )));
-			//conditionLabel.setText(conditionText);
-			//conditionLabel.setBackground(new Background(new BackgroundFill( Color.LIGHTSKYBLUE , new CornerRadii(5) , Insets.EMPTY  )));
 		}
 		
 		
@@ -766,7 +719,6 @@ public class Gui extends Application{
 				
 				conditionLabel.setText(null);
 				conditionLabel.setBackground(null);
-				//System.out.println("状態異常");
 			}
 		}));
 		
@@ -789,26 +741,6 @@ public class Gui extends Application{
 				timer.lowLoseTime(lowDamage);
 				damageCount++;
 				
-				System.out.println("状態異常ダメージ：" + lowDamage);
-				
-				/*if(damageCount < 5) {
-					if(conditiontext.equals("やけど")) {
-						cellGui.setBackground(new Background(new BackgroundFill( Color.DARKORANGE , new CornerRadii(5) , Insets.EMPTY  )));
-						
-						//conditionLabel.setText(conditiontext);
-						//conditionLabel.setBackground(new Background(new BackgroundFill( Color.DARKORANGE , new CornerRadii(5) , Insets.EMPTY  )));
-					}
-					else if(conditiontext.equals("どく")) {
-						cellGui.setBackground(new Background(new BackgroundFill( Color.PLUM , new CornerRadii(5) , Insets.EMPTY  )));
-						//conditionLabel.setText(conditiontext);
-						//conditionLabel.setBackground(new Background(new BackgroundFill( Color.PLUM , new CornerRadii(5) , Insets.EMPTY  )));
-					}
-					else if(conditiontext.equals("こんらん")) {
-						conditionLabel.setBackground(new Background(new BackgroundFill( Color.LIGHTSALMON , new CornerRadii(5) , Insets.EMPTY  )));
-						//conditionLabel.setText(conditiontext);
-						//conditionLabel.setBackground(new Background(new BackgroundFill( Color.LIGHTSALMON , new CornerRadii(5) , Insets.EMPTY  )));
-					}
-				}*/
 				if(damageCount == 5) {
 					moveTimerJudge = false;
 					
@@ -816,7 +748,6 @@ public class Gui extends Application{
 					
 					conditionLabel.setText(null);
 					conditionLabel.setBackground(null);
-					//System.out.println("abc");
 				}
 			}
 		}));
@@ -844,30 +775,24 @@ public class Gui extends Application{
 	}
 	
 	public void setMedicineItem() {
-		//medicineImgView[itemCount] = new ImageView(medicineImg);
 		itemLabel[itemCount].setGraphic(medicineImgView[itemCount]);
 		medicineImgView[itemCount].setVisible(true);
 		item[itemCount].setMedicineItemJudge(true);
 		itemCount++;
-		System.out.println("item  " + itemCount);
 	}
 	
 	public void setOpenItem() {
-		//openItemImgView[itemCount] = new ImageView(openItemImg);
 		itemLabel[itemCount].setGraphic(openItemImgView[itemCount]);
 		openItemImgView[itemCount].setVisible(true);
 		item[itemCount].setOpenItemJudge(true);
 		itemCount++;
-		System.out.println("item  " + itemCount);
 	}
 	
 	public void setCureItem() {
-		//openItemImgView[itemCount] = new ImageView(openItemImg);
 		itemLabel[itemCount].setGraphic(cureItemImgView[itemCount]);
 		cureItemImgView[itemCount].setVisible(true);
 		item[itemCount].setCureItemJudge(true);
 		itemCount++;
-		System.out.println("item  " + itemCount);
 	}
 	
 	public void itemEventMouseClick(MouseEvent itemMouseEvent) {
@@ -895,18 +820,14 @@ public class Gui extends Application{
 					
 					
 					if(item[i].getCureItemJudge() == true) {
-						System.out.println("ああああああ１" + moveTimerJudge2);
 						if(moveTimerJudge == true || moveTimerJudge2 == true){
-							//System.out.println("ああああああ１");
 							if(itemDisable == false) {
 								if(moveTimerJudge == true) {
 									damageTimer.stop();
 									moveTimerJudge = false;
-								//System.out.println("ああああああ２");
 								}
 							}
 							if(moveTimerJudge2 == true) {
-								System.out.println("ああああああ3");
 								moveStopTimer.stop();
 								
 								itemDisable = false;
@@ -930,14 +851,8 @@ public class Gui extends Application{
 						}
 					}
 					
-					else if(item[i].getCureItemJudge() == false) {
-						System.out.println("aabcdefg");
-					}
-					
-					
 					
 					if(!(item[i].getCureItemJudge() == true && moveTimerJudge == false && moveTimerJudge2 == false)){
-						System.out.println("kkkkkkkkkkkk");
 						for(int j = i; j < 6; j++) {
 							item[j].setMedicineItemJudge(item[j+1].getMedicineItemJudge());
 							item[j].setOpenItemJudge(item[j+1].getOpenItemJudge());
@@ -975,14 +890,12 @@ public class Gui extends Application{
 		
 		nextVb = new VBox();
 		nextBtn = new Button();
-		//nextBtn.setPrefWidth(100);//横のサイズ
 		nextBtn.setPrefHeight(50);//縦のサイズ
 		nextBtn.setText("NEXT STAGE  ▷▷▷");
 		nextBtn.setFont(new Font(17));//文字サイズ
 		
 		nextVb.setPadding(new Insets(120,0,0,120));
 		nextVb.getChildren().add(nextBtn);
-		//nextVb.setAlignment(Pos.CENTER);
 		
 		if(clearCount == 1) {
 			nextVb.setBackground(bgNextStage1);
@@ -995,8 +908,6 @@ public class Gui extends Application{
 			EventHandler<MouseEvent> nextStage = (event) -> gameScreen3(event,stage,clearCount);//マウスクリックで画面切り替え
 			nextBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, nextStage);
 		}
-		
-		
 		
 		nextSc = new Scene(nextVb,900,650);
 		
@@ -1041,7 +952,6 @@ public class Gui extends Application{
 		gameOverVb = new VBox(430);
 		gameOverVb.getChildren().addAll(gameOverHb1,gameOverHb2);
 		gameOverVb.setBackground(gameOverStage);
-		//gameOverVb.setAlignment(Pos.CENTER);
 		
 		gameOverSc = new Scene(gameOverVb,900,650);
 		
@@ -1095,11 +1005,6 @@ public class Gui extends Application{
 	}
 	
 	public void hpGauge(int openCount, int clearCount, int num) {
-		
-		//hpBar.setProgress(1.0 - (((double)openCount - (double)num) / ((double)(81-10) - (double)num)));
-		//num = num - openCount;
-		
-		//System.out.println("num   "+num);
 		if(clearCount == 0) {
 			hpBar.setProgress(1.0 - (((double)openCount - (double)num) / ((double)(81-10) - (double)num)));
 		}
@@ -1119,7 +1024,6 @@ public class Gui extends Application{
 		if(time < 0.2) {
 			timeBar.setStyle("-fx-accent : red");
 		}
-		//System.out.println(recovery);
 	}
 	
 	public void timeOver() {//時間切れ処理(Timerで呼ぶ用)

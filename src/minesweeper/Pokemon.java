@@ -36,9 +36,6 @@ public class Pokemon {
 	Timeline attackTimer;
 	Timeline nullTextTimer;
 	
-	//Timer timer = new Timer(gui);
-	
-	
 	public String getName() {
 		return name;
 	}
@@ -146,8 +143,6 @@ public class Pokemon {
 				
 				else if(attackType[attackNum].equals("通常+やけど")) {
 					gui.getLabel().setText(getName() + "の" + attack[attackNum] + "攻撃!\nやけどのダメージを受けた");
-					//gui.getConditionLabel().setText("やけど");
-					//gui.getConditionLabel().setBackground(new Background(new BackgroundFill( Color.DARKORANGE , new CornerRadii(5) , Insets.EMPTY  )));
 					gui.burnChangeText();
 					timer.loseTime(getPower() + damage[attackNum]);
 					gui.conditionDamage("やけど");
@@ -156,8 +151,6 @@ public class Pokemon {
 				
 				else if(attackType[attackNum].equals("通常+どく")) {
 					gui.getLabel().setText(getName() + "の" + attack[attackNum] + "攻撃!\nどくのダメージを受けた");
-					//gui.getConditionLabel().setText("どく");
-					//gui.getConditionLabel().setBackground(new Background(new BackgroundFill( Color.PLUM , new CornerRadii(5) , Insets.EMPTY  )));
 					gui.poisonChangeText();
 					timer.loseTime(getPower() + damage[attackNum]);
 					gui.conditionDamage("どく");
@@ -166,8 +159,6 @@ public class Pokemon {
 				
 				else if(attackType[attackNum].equals("通常+こんらん")) {
 					gui.getLabel().setText(getName() + "の" + attack[attackNum] + "攻撃!\nこんらんしてわけもわからず自分を攻撃した");
-					//gui.getConditionLabel().setText("どく");
-					//gui.getConditionLabel().setBackground(new Background(new BackgroundFill( Color.LIGHTSALMON , new CornerRadii(5) , Insets.EMPTY  )));
 					gui.confusionChangeText();
 					timer.loseTime(getPower() + damage[attackNum]);
 					gui.conditionDamage("こんらん");
@@ -178,7 +169,6 @@ public class Pokemon {
 					gui.getLabel().setText(getName() + "の" + attack[attackNum] + "攻撃!\nまひして体が動かない！");
 					gui.getConditionLabel().setText("まひ");
 					gui.getConditionLabel().setBackground(new Background(new BackgroundFill( Color.YELLOW , new CornerRadii(5) , Insets.EMPTY  )));
-					//gui.getLabel2().setText("まひして体が動かない！");
 					gui.moveStop("まひ");
 					nullText();
 				}
@@ -187,14 +177,12 @@ public class Pokemon {
 					gui.getLabel().setText(getName() + "の" + attack[attackNum] + "攻撃!\n眠気におそわれねむってしまった");
 					gui.getConditionLabel().setText("ねむり");
 					gui.getConditionLabel().setBackground(new Background(new BackgroundFill( Color.LIGHTBLUE , new CornerRadii(5) , Insets.EMPTY  )));
-					//gui.getLabel2().setText("眠気におそわれねむってしまった");
 					gui.moveStop("ねむり");
 					nullText();
 				}
 				
 				else if(attackType[attackNum].equals("こおり")) {
 					gui.getLabel().setText(getName() + "の" + attack[attackNum] + "攻撃!\n凍ってしまって動けない！");
-					//gui.getLabel2().setText("凍ってしまって動けない！");
 					gui.getConditionLabel().setText("こおり");
 					gui.getConditionLabel().setBackground(new Background(new BackgroundFill( Color.LIGHTSKYBLUE , new CornerRadii(5) , Insets.EMPTY  )));
 					gui.moveStop("こおり");
@@ -203,9 +191,6 @@ public class Pokemon {
 				
 				else if(attackType[attackNum].equals("ひるみ")) {
 					gui.getLabel().setText(getName() + "の" + attack[attackNum] + "攻撃!\n" + damage[attackNum] + " のダメージを受けた\nひるんで動けない！");
-					//gui.getLabel2().setText(String.valueOf(damage[attackNum]) + " のダメージをうけた");
-					//gui.getLabel1().setText("ひるんで動けない！");
-					
 					timer.loseTime(getPower() + damage[attackNum]);
 					gui.moveStop("");
 					nullText();
@@ -213,35 +198,23 @@ public class Pokemon {
 				
 				else if(attackType[attackNum].equals("やけど")) {
 					gui.getLabel().setText(getName() + "の" + attack[attackNum] + "攻撃!\nやけどのダメージを受けた");
-					//gui.getLabel2().setText("やけどのダメージを受けた");
 					gui.burnChangeText();
-					//gui.getConditionLabel().setText("やけど");
-					//gui.getConditionLabel().setBackground(new Background(new BackgroundFill( Color.DARKORANGE , new CornerRadii(5) , Insets.EMPTY  )));
 					gui.conditionDamage("やけど");
 					nullText();
-					//System.out.println("defg");
 				}
 				
 				else if(attackType[attackNum].equals("どく")) {
 					gui.getLabel().setText(getName() + "の" + attack[attackNum] + "攻撃!\nどくのダメージを受けた");
-					//gui.getLabel2().setText("どくのダメージを受けた");
 					gui.poisonChangeText();
-					//gui.getConditionLabel().setText("どく");
-					//gui.getConditionLabel().setBackground(new Background(new BackgroundFill( Color.PLUM , new CornerRadii(5) , Insets.EMPTY  )));
 					gui.conditionDamage("どく");
 					nullText();
-					//System.out.println("defg");
 				}
 				
 				else if(attackType[attackNum].equals("こんらん")) {
 					gui.getLabel().setText(getName() + "の" + attack[attackNum] + "攻撃!\nこんらんしてわけもわからず自分を攻撃した");
-					//gui.getLabel2().setText("こんらんしてわけもわからず自分を攻撃した");
 					gui.confusionChangeText();
-					//gui.getConditionLabel().setText("こんらん");
-					//gui.getConditionLabel().setBackground(new Background(new BackgroundFill( Color.LIGHTSALMON , new CornerRadii(5) , Insets.EMPTY  )));
 					gui.conditionDamage("こんらん");
 					nullText();
-					//System.out.println("defg");
 				}
 			}
 		}));

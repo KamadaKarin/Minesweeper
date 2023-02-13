@@ -30,7 +30,6 @@ public class CellGui extends GridPane{
 	private ImageView[][] cureItemImgView;
 	private boolean firstClick = true;
 	private boolean ItemJudge = false;
-	//private boolean useJudge = true;
 	
 	private int cellNum = 9;
 	private int bombNum;
@@ -40,16 +39,10 @@ public class CellGui extends GridPane{
 	private int openCount = 0;
 	private int clearCount;
 	private int num;
-	//private int itemOpenCount = 0;
-	//private Image flagImg;
-   
 	
 	
 	EventHandler<MouseEvent> mouseClick = ( event ) -> this.mouseClick( event );
 	EventHandler<MouseEvent> itemMouseClick = ( event ) -> this.itemMouseClick( event );
-	
-	//Image medicineImg = new Image("file:C:/キズぐすり.png",30,0, true, false);
-    //ImageView medicineImgView = new ImageView( medicineImg );
 
 	
 	public CellGui(Stage stage, Gui gui, int bombNum,int clearCount,Pokemon pokemon) {//9×9のマス
@@ -66,7 +59,6 @@ public class CellGui extends GridPane{
 		for(int i = 0; i < cellBtn.length; i++) {//行
 			for(int j = 0; j < cellBtn[i].length; j++) {//列
 				cellBtn[i][j] = new Button();//ボタン生成
-				//cellBtn[i][j].setOpacity(0.3);
 				cellBtn[i][j].setPrefWidth(40);
 				cellBtn[i][j].setPrefHeight(40);
 				cell[i][j] = new Cell();//81個のマス情報を生成
@@ -153,59 +145,53 @@ public class CellGui extends GridPane{
 
 	public void mouseClick(MouseEvent event) {//マウスクリックの処理
 		
-		//if(useJudge == true) {//操作可能
-		
-			if (event.getButton() == MouseButton.SECONDARY) {//右クリックされたら
+		if (event.getButton() == MouseButton.SECONDARY) {//右クリックされたら
 			
-				for(int i = 0; i < cellBtn.length; i++) {
-					for(int j = 0; j < cellBtn[i].length; j++) {
+			for(int i = 0; i < cellBtn.length; i++) {
+				for(int j = 0; j < cellBtn[i].length; j++) {
 					
-						if(event.getSource() == cellBtn[i][j]) {//どこが押されたか取得
+					if(event.getSource() == cellBtn[i][j]) {//どこが押されたか取得
 							settingFlag(i,j);//押された場所をsettingFlagに送る
-						
-						}
-						if(event.getSource() == flagImgView[i][j]) {//どこが押されたか取得
-							settingFlag(i,j);//押された場所をsettingFlagに送る
-						
-						}
 						
 					}
+					if(event.getSource() == flagImgView[i][j]) {//どこが押されたか取得
+						settingFlag(i,j);//押された場所をsettingFlagに送る
+						
+					}
+						
 				}
 			}
+		}
 			
-			if(event.getButton() == MouseButton.PRIMARY) {//左クリックされたら
-				for(int i = 0; i < cellBtn.length; i++) {
-					for(int j = 0; j < cellBtn[i].length; j++) {
+		if(event.getButton() == MouseButton.PRIMARY) {//左クリックされたら
+			for(int i = 0; i < cellBtn.length; i++) {
+				for(int j = 0; j < cellBtn[i].length; j++) {
 						
-						if(event.getSource() == cellBtn[i][j]) {//どこが押されたか取得
+					if(event.getSource() == cellBtn[i][j]) {//どこが押されたか取得
 						
-							if(firstClick == true) {//最初のクリックだったら
-								putBomb(i,j);//爆弾を設置
-								gui.setTimer();
-								pokemon.attackTimer();
-								
-								//firstClick = false;//2回目以降のクリックに切り替え	
-							}
+						if(firstClick == true) {//最初のクリックだったら
+							putBomb(i,j);//爆弾を設置
+							gui.setTimer();
+							pokemon.attackTimer();	
+						}
 							
-							//gui.attackTimer(clearCount);
 						
-							if(cell[i][j].getBomb() == true) {//爆弾を押したら
-								gui.gameOverScreen(stage);
-								pokemon.stopTimer();
-								gui.lowDamageStop();
-							}
+						if(cell[i][j].getBomb() == true) {//爆弾を押したら
+							gui.gameOverScreen(stage);
+							pokemon.stopTimer();
+							gui.lowDamageStop();
+						}
 					
-							else if(cell[i][j].getFlag() == false) {
-								openCell(i,j);
-								firstClick = false;
-								clear();
-							}
+						else if(cell[i][j].getFlag() == false) {
+							openCell(i,j);
+							firstClick = false;
+							clear();
 						}
 					}
-				}	
-			}
+				}
+			}	
 		}
-	//}
+	}
 	
 	
 	public void itemMouseClick(MouseEvent itemEvent) {
@@ -230,19 +216,14 @@ public class CellGui extends GridPane{
 		}
 	}
 	
-	/*public void setUseJudge(boolean useJudge) {
-		this.useJudge = useJudge;
-	}*/
 	
 	public void settingFlag(int i,int j) {
 		if(cell[i][j].getFlag() == false) {//旗が立っていなかったら
-			//cellBtn[i][j].setText("旗");//旗を立てる
 			flagImgView[i][j].setVisible(true);
 			cell[i][j].setFlag(true);//立っている
 		}
 		
 		else if(cell[i][j].getFlag() == true) {//旗が立っていたら
-			//cellBtn[i][j].setText("");//旗をとる
 			flagImgView[i][j].setVisible(false);
 			cell[i][j].setFlag(false);//立っていない
 		}
@@ -395,10 +376,6 @@ public class CellGui extends GridPane{
 		else {
 		gui.hpGauge(openCount,clearCount,num);
 		}
-		System.out.println("おーぷん" +openCount);
-		
-		//Mugendaina mugendaina = new Mugendaina();
-		//System.out.println(openCount);
 		
 		if(cell[x][y].getBombCount() != 0) {
 			cellBtn[x][y].setText(String.valueOf(cell[x][y].getBombCount()));
@@ -448,28 +425,21 @@ public class CellGui extends GridPane{
 	public void clear() {//クリア処理
 		if(openCount == (cellNum * cellNum) - bombNum) {//爆弾以外のマスが空いたら
 			this.clearCount++;
-			System.out.println("お"+openCount);
-			System.out.println("ぼむ"+bombNum);
 			
 			timer = new Timer(gui,stage);
 			timer.setMoveJudge(false);
 			
 			pokemon.stopTimer();
 			
-			System.out.println("クリア判定"+clearCount);
-			
 		switch(clearCount) {
 			case 1:
-				System.out.println(clearCount);
 				gui.nextStage(stage,clearCount);
 				break;
 			case 2:
 				gui.nextStage(stage,clearCount);
-				System.out.println(clearCount);
 				break;
 			case 3:
 				gui.clearScreen(stage);
-				System.out.println(clearCount);
 				break;
 			}
 		}

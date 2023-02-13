@@ -7,7 +7,6 @@ public class Timer extends Thread{
 	
 	private Gui gui;
 	private Stage stage;
-	//private int clearCount;
 	
 	private int sec = 3000;
 	private int count = 3000;
@@ -17,7 +16,6 @@ public class Timer extends Thread{
 	public Timer(Gui gui,Stage stage) {
 		this.gui = gui;
 		this.stage = stage;
-		//this.clearCount = clearCount;
 	}
 	
 	public void run() {
@@ -25,8 +23,6 @@ public class Timer extends Thread{
 			if(count > 0) {
 				try {
 					Thread.sleep(100);
-					//System.out.println("run");
-				
 				}
 				catch (InterruptedException ex) {
 					System.err.println(ex);
@@ -37,8 +33,6 @@ public class Timer extends Thread{
 				{
 					// GUI操作処理
 					gui.timeGauge(sec, count);
-					//System.out.println(count);
-				
 				});
 			}
 			else {
@@ -52,9 +46,6 @@ public class Timer extends Thread{
 		}
 	}
 	
-	/*public int setSec(int sec) {
-		this.sec = sec;
-	}*/
 	
 	public int getTime() {
 		return count;
@@ -65,10 +56,7 @@ public class Timer extends Thread{
 	}
 	
 	public void loseTime(int damage) {
-		//System.out.println(count);
 		count = count - damage;
-		System.out.println("ダメージ：" + damage);
-		//System.out.println(count);
 	}
 	
 	public void setMoveJudge(boolean moveJudge) {
